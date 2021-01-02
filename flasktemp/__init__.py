@@ -1,2 +1,2 @@
-from .flask-temp import app
+from .flasktemp import app
 
