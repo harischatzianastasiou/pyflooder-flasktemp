@@ -9,7 +9,7 @@ confinement: devmode
 
 apps:
 
-  flask-temp:
+  flasktemp:
     command: flask run --host=0.0.0.0
     daemon: simple
     restart-condition: always
@@ -17,7 +17,7 @@ apps:
     environment:
       FLASK_APP: flasktemp.py
 parts:
-  flask-temp:
+  flasktemp:
     plugin: python
     python-version: python3
     source: .
