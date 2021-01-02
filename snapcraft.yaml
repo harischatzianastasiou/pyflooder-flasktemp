@@ -1,4 +1,4 @@
-name: flask-temp
+name: flasktemp
 version: '1.0.0'
 summary: flaskapp
 description: |
@@ -15,7 +15,7 @@ apps:
     restart-condition: always
     plugs: [network-bind]
     environment:
-      FLASK_APP: flask-temp.py
+      FLASK_APP: flasktemp.py
 parts:
   flask-temp:
     plugin: python
