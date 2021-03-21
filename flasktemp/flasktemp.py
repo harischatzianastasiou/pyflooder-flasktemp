@@ -1,7 +1,9 @@
 from flask import Flask
-import random
-import numpy
+import psutil
+import pandas as pd
 import time
+import os
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -9,35 +11,62 @@ app = Flask(__name__)
 @app.route('/')
 def main():
 
- global x,n
- n = 0
- x = random.uniform(17, 25)
- y=random.randint(1,10)
- while True:
-   if y<=3:
-     while n <= 3:
-          time.sleep(1.5)
-          n+=1
-     while x <= 19:
-          time.sleep(1.5)
-          return("Current temperature is &.1f" % (x))
-          time.sleep(1.5)
-          x += 1.543
-     while x>19 and n>0:
-          time.sleep(1.5)
-          return("Current temperature is &.1f" % (x))
-          x += 0.874
-          time.sleep(1.5)
-          n-=2
-          while n==0:
-                time.sleep(1.5)
-                return("Current temperature is &.1f" % (x))
-                time.sleep(1.5)
 
-   if y>3:
-     time.sleep(1.5)
-     return('Current temperature: %.1f' %(x))
-     time.sleep(1.5)
+    processes = []
+    for process in psutil.process_iter():
+      if(process.pid!=os.getpid()):
+           pid = process.pid
+           if pid == 0:
+                # System Idle Process for Windows NT, useless to see anyways
+               continue
+           name = process.name()
+           p = psutil.Process(pid)
+           cpu_usage = process.cpu_percent()
+           mem_usage=p.memory_percent()
+           status = process.status()
+           #cwd=p.cwd()
+           # get the time the process was spawned
+           try:
+               create_time = datetime.fromtimestamp(process.create_time())
+           except OSError:
+                # system processes, using boot time instead
+               create_time = datetime.fromtimestamp(psutil.boot_time())
+           except OSError:
+                # system processes, using boot time instead
+               create_time = datetime.fromtimestamp(psutil.boot_time())
+
+           uptime=time.time() - process.create_time()
+           #uptime=time.strftime('%H:%M:%S', time.gmtime(uptime))
+           if (uptime<60):
+               uptime=round((uptime/60),2)
+           #try:
+           #    username = process.username()
+           #except psutil.AccessDenied:
+           #    username = "N/A"
+           #try:
+           #    exe = process.exe()
+           #except psutil.AccessDenied:
+           #    exe = "Access to full path denied"
+           processes.append({
+                 'pid': pid, 'name': name,'status': status,'cpu_usage':cpu_usage,'memory_usage':mem_usage,'found_ratio':uptime
+           })
+    df = pd.DataFrame(processes)
+    total_memory_percent=round(df['memory_usage'].sum(),1)
+    total_cpu_percent=round(df['cpu_usage'].sum(),1)
+    max_cpu = df['cpu_usage'].max()
+    max_mem=round(df['memory_usage'].max(),1)
+    df = df[['pid', 'name','status','found_ratio','cpu_usage','memory_usage']]
+    df = df[df['found_ratio']<1]
+    #df.sort_values(by=['found_ratio'], inplace=True)
+    #df=df.iloc[:30]
+    #os.system("clear")
+    data=[]
+    data.append({
+             '  Max CPU(%) : ' : max_cpu , ' Max Memory(%) : ' : max_mem , ' Total Processes : ' : len(processes), ' Total CPU(%) : ': total_cpu_percent, ' Total Memory(%) : ' : total_memory_percent
+    })
+    return """
+    <meta http-equiv="refresh" content="1" /> 
+    System Resources<br><br>: {} .""".format(data)
 
 if __name__ == "__main__":
- app.run('host=0.0.0.0', use_reloader=False)
+    app.run('host=0.0.0.0',use_reloader=True)
