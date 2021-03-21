@@ -14,6 +14,8 @@ setup(
         install_requires=[
             'flask',
             'numpy',
+            'pandas',
+            'psutil',
         ],
         )
 
