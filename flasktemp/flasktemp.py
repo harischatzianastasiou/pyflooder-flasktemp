@@ -51,6 +51,13 @@ def main():
                  'pid': pid, 'name': name,'status': status,'cpu_usage':cpu_usage,'memory_usage':mem_usage,'found_ratio':uptime
            })
     df = pd.DataFrame(processes)
+    df2 = pd.DataFrame(processes)
+    df3 = pd.DataFrame(processes)
+    df4 = pd.DataFrame(processes)
+    df5 = pd.DataFrame(processes)
+    df6 = pd.DataFrame(processes)
+    df7 = pd.DataFrame(processes)
+    df8 = pd.DataFrame(processes)
     total_memory_percent=round(df['memory_usage'].sum(),1)
     total_cpu_percent=round(df['cpu_usage'].sum(),1)
     max_cpu = df['cpu_usage'].max()
