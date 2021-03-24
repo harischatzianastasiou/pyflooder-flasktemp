@@ -73,7 +73,7 @@ def main():
              '  Max CPU(%) : ' : max_cpu , ' Max Memory(%) : ' : max_mem , ' Total Processes : ' : len(processes), ' Total CPU(%) : ': total_cpu_percent, ' Total Memory(%) : ' : total_memory_percent
     })
     return """
-    <meta http-equiv="refresh" content="{} /> 
+    <meta http-equiv="refresh" content={} /> 
     System Resources<br><br>: {} .""".format(args.refresh,data)
 
 if __name__ == "__main__":
