@@ -3,6 +3,7 @@ import psutil
 import pandas as pd
 import time
 import os
+import argparse
 from datetime import datetime
 
 app = Flask(__name__)
@@ -76,4 +77,12 @@ def main():
     System Resources<br><br>: {} .""".format(data)
 
 if __name__ == "__main__":
-    app.run('host=0.0.0.0',use_reloader=True)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("server", help="specify address and port")
+    parser.add_argument("refresh", help="specify refresh rate",
+                        type=int)
+    args = parser.parse_args()
+    app.config.update (
+        DEBUG = True,
+        SERVER_NAME=args.server)
+    app.run()
