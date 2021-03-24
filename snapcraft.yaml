@@ -10,7 +10,7 @@ confinement: strict
 apps:
 
   flasktemp:
-    command: python3 flasktemp.py
+    command: flasktemp.py
     daemon: simple
     restart-condition: always
     plugs: [network-bind]
