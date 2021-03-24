@@ -10,7 +10,7 @@ confinement: strict
 apps:
 
   flasktemp:
-    command: flask run --host=0.0.0.0
+    command: python3 flasktemp.py "$ip" $1
     daemon: simple
     restart-condition: always
     plugs: [network-bind]
