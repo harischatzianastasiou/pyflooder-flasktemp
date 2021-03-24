@@ -11,8 +11,8 @@ apps:
 
   flasktemp:
     command: flasktemp.py
-    daemon: simple
-    restart-condition: always
+    #daemon: simple
+    #restart-condition: always
     plugs: [network-bind]
     environment:
       FLASK_APP: flasktemp.py
