@@ -17,5 +17,6 @@ setup(
             'pandas',
             'psutil',
         ],
-        )
+        scripts=['flasktemp/flasktemp.py']
+)
 
