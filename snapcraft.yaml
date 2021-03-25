@@ -12,9 +12,9 @@ apps:
 
   flasktemp:
     command: flasktemp.py
-    #daemon: simple
+    daemon: simple
     #restart-condition: always
-    #plugs: [network-bind]
+    plugs: [network-bind]
     #environment:
     #  FLASK_APP: flasktemp.py
 parts:
