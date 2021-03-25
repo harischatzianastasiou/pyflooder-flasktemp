@@ -11,8 +11,8 @@ confinement: strict
 apps:
 
   flasktemp:
-    command: flasktemp.py
-    #daemon: simple
+    command: flasktemp.py "$ip" "$rate"
+    daemon: simple
     #restart-condition: always
     plugs: [network-bind]
     #environment:
