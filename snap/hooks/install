@@ -1,4 +1,0 @@
-#!/bin/sh -e
-
-# Initialize the sleep time to a default
-snapctl set sleep-time=5
