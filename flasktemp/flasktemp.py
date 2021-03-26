@@ -85,6 +85,5 @@ if __name__ == "__main__":
                         type=int)
     args = parser.parse_args()
     app.config.update (
-        DEBUG = True,
         SERVER_NAME=args.server)
     app.run()
