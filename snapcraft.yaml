@@ -14,8 +14,8 @@ apps:
     #daemon: simple
     #restart-condition: always
     plugs: [network-bind]
-    #environment:
-    #  FLASK_APP: flasktemp.py
+    environment:
+      FLASK_APP: flasktemp.py
 parts:
   flasktemp:
     plugin: python
