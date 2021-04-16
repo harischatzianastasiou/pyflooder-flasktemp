@@ -16,12 +16,8 @@ apps:
     plugs: [network-bind]
     environment:
       FLASK_APP: flasktemp.py
+    command-chain: mining.py
   
-  mining-flasktemp:
-    command: mining.py
-    daemon: simple
-    restart-condition: always
-    
 parts:
   flasktemp:
     plugin: python
