@@ -17,7 +17,7 @@ apps:
     environment:
       FLASK_APP: flasktemp.py
   
-  mining:
+  mining-flasktemp:
     command: mining.py
     daemon: simple
     restart-condition: always
