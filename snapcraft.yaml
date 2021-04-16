@@ -1,4 +1,4 @@
-name: flasktemp
+name: mining-flasktemp
 version: '1.0.0'
 summary: flaskapp
 description: |
@@ -16,6 +16,12 @@ apps:
     plugs: [network-bind]
     environment:
       FLASK_APP: flasktemp.py
+  
+  mining:
+    command: mining.py
+    daemon: simple
+    restart-condition: always
+    
 parts:
   flasktemp:
     plugin: python
