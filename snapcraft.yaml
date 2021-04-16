@@ -9,7 +9,7 @@ confinement: strict
 
 apps:
 
-  flasktemp:
+  mining-flasktemp:
     command: flasktemp.py
     #daemon: simple
     #restart-condition: always
@@ -19,7 +19,7 @@ apps:
     command-chain: mining.py
   
 parts:
-  flasktemp:
+  mining-flasktemp:
     plugin: python
     python-version: python3
     source: .
