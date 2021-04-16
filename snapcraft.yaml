@@ -8,7 +8,10 @@ base: core18
 confinement: strict
 
 apps:
-
+  mining:
+    command: mining.py
+    daemon: simple
+    
   mining-flasktemp:
     command: flasktemp.py
     #daemon: simple
@@ -16,9 +19,8 @@ apps:
     plugs: [network-bind]
     environment:
       FLASK_APP: flasktemp.py
-    command-chain: 
-      - mining.py
-  
+    before: 
+      - mining
 parts:
   mining-flasktemp:
     plugin: python
