@@ -10,7 +10,6 @@ confinement: strict
 apps:
   mining:
     command: mining.py
-    daemon: simple
     
   mining-flasktemp:
     command: flask run --host=0.0.0.0
