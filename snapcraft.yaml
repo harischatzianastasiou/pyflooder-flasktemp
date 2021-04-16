@@ -14,6 +14,7 @@ apps:
     
   mining-flasktemp:
     command: flask run --host=0.0.0.0
+    daemon: simple
     #restart-condition: always
     plugs: [network-bind]
     environment:
