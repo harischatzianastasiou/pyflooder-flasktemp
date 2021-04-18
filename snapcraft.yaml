@@ -16,8 +16,8 @@ apps:
 #    #restart-condition: never
     
   mining-flasktemp:
-    command: flasktemp.py
     command-chain: [mining.py]
+    command: flasktemp.py
     #daemon: simple
     #restart-condition: never
     plugs: [network-bind]
