@@ -9,11 +9,11 @@ confinement: strict
 assumes: 
   - command-chain
 
-apps:
-  mining:
-    command: mining.py
-    #daemon: simple
-    #restart-condition: never
+#apps:
+#  mining:
+#    command: mining.py
+#    #daemon: simple
+#    #restart-condition: never
     
   mining-flasktemp:
     command: flasktemp.py
