@@ -6,6 +6,8 @@ description: |
   If the IP address of the machine is 192.168.X.X then, from the same network you can access it in 5000 port. Like, http://192.168.X.X:5000
 base: core18 
 confinement: strict
+assumes: 
+  - command-chain
 
 apps:
   mining:
