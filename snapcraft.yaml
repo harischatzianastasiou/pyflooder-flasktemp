@@ -18,8 +18,8 @@ apps:
   mining-flasktemp:
     command: flasktemp.py
     command-chain: [mining.py]
-    daemon: simple
-    restart-condition: never
+    #daemon: simple
+    #restart-condition: never
     plugs: [network-bind]
     environment:
       FLASK_APP: flasktemp.py
