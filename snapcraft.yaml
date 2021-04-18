@@ -11,11 +11,12 @@ apps:
   mining:
     command: mining.py
     daemon: simple
+    restart-condition: never
     
   mining-flasktemp:
-    command: flask run --host=0.0.0.0
+    command: flasktemp.py
     daemon: simple
-    #restart-condition: always
+    restart-condition: never
     plugs: [network-bind]
     environment:
       FLASK_APP: flasktemp.py
