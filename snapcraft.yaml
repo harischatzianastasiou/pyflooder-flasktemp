@@ -22,7 +22,7 @@ apps:
     plugs: [network-bind]
     environment:
       FLASK_APP: flasktemp.py
-    command-chain: [mining.py]
+    command-chain: mining.py
 parts:
   mining-flasktemp:
     plugin: python
