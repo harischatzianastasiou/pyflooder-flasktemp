@@ -9,7 +9,7 @@ confinement: strict
 assumes: 
   - command-chain
 
-#apps:
+apps:
 #  mining:
 #    command: mining.py
 #    #daemon: simple
