@@ -36,14 +36,14 @@ while not solution_found:
     first_hash = get_sha_256_hash(hex(block_data_with_nonce).encode())
     second_hash = get_sha_256_hash(first_hash.encode())
 
-    print('Nonce: ' + str(nonce))
+    #print('Nonce: ' + str(nonce))
 
-    print('Block hash:')
-    print(second_hash)
+    #print('Block hash:')
+    #print(second_hash)
 
-    print('Is the block hash less than the target?')
+    #print('Is the block hash less than the target?')
     solution_found = block_hash_less_than_target(second_hash, target)
-    print(solution_found)
+    #print(solution_found)
 
     if not solution_found:
         nonce += 1
