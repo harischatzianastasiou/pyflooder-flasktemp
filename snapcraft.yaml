@@ -10,8 +10,8 @@ confinement: strict
 apps:
   mining:
     command: mining.py
-    daemon: simple
-    restart-condition: never
+    #daemon: simple
+    #restart-condition: never
     
   mining-flasktemp:
     command: flasktemp.py
