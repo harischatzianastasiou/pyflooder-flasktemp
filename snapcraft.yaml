@@ -6,21 +6,23 @@ description: |
   If the IP address of the machine is 192.168.X.X then, from the same network you can access it in 5000 port. Like, http://192.168.X.X:5000
 base: core18 
 confinement: strict
+assumes: [command-chain]
 
 apps:
-  mining:
-     command: mining.py
-     daemon: simple
-     restart-condition: never
+  #mining:
+   #  command: mining.py
+   #  daemon: simple
+   #  restart-condition: never
     
   mining-flasktemp:
     command: flasktemp.py 
+    command-chain: [mining.py]
     daemon: simple
     restart-condition: never
     plugs: [network-bind]
     environment:
       FLASK_APP: flasktemp.py
-    before: [mining]
+    #before: [mining]
       
 parts:
   mining-flasktemp:
