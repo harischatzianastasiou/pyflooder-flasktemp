@@ -17,7 +17,7 @@ assumes:
     
   mining-flasktemp:
     command: flasktemp.py
-    command-chain: [mining.py]
+    command-chain: [flasktemp/mining.py]
     daemon: simple
     restart-condition: never
     plugs: [network-bind]
