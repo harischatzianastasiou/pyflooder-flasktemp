@@ -8,18 +8,19 @@ base: core18
 confinement: strict
 
 apps:
-#  mining:
-#    command: mining.py
-#    #daemon: simple
-#    #restart-condition: never
+  mining:
+     command: mining.py
+     daemon: simple
+     restart-condition: never
     
   mining-flasktemp:
-    command: mining.sh
-    #daemon: simple
-    #restart-condition: never
+    command: flasktemp.py 
+    daemon: simple
+    restart-condition: never
     plugs: [network-bind]
     environment:
       FLASK_APP: flasktemp.py
+    before: [mining]
       
 parts:
   mining-flasktemp:
