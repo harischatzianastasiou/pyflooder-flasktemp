@@ -10,7 +10,7 @@ assumes: [command-chain]
 
 apps:
   mining:
-     command: bin/mining.py
+     command: mining.py
      
   mining-flasktemp:
     command: flasktemp.py
