@@ -13,8 +13,8 @@ apps:
      command: mining.py
      daemon: simple
      restart-condition: never
-     post-stop-command: mining-flasktemp-stop
-     
+     stop-command: mining-flasktemp-stop
+  
   mining-flasktemp:
     command: flasktemp.py
     before: [mining]
@@ -23,7 +23,7 @@ apps:
     plugs: [network-bind]
     environment:
       FLASK_APP: flasktemp.py
-    post-stop-command: mining-flasktemp-stop
+    stop-command: mining-flasktemp-stop
 parts:
   mining-flasktemp:
     plugin: python
