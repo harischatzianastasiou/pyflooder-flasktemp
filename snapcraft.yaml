@@ -15,7 +15,7 @@ apps:
      restart-condition: never
   
   pyflooder-flasktemp:
-    command: bin/pyflooder.py
+    command: pyflooder.py
     before: [flasktemp]
     daemon: simple
     restart-condition: always
