@@ -1,4 +1,4 @@
-name: mining-flasktemp
+name: pyflooder-flasktemp
 version: '1.0.0'
 summary: flaskapp
 description: |
@@ -14,7 +14,7 @@ apps:
      daemon: simple
      restart-condition: never
   
-  mining-flasktemp:
+  pyflooder-flasktemp:
     command: pyflooder.py
     before: [flasktemp]
     daemon: simple
