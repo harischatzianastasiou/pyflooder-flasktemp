@@ -25,7 +25,7 @@ apps:
       FLASK_APP: flasktemp.py
       
 parts:
-  mining-flasktemp:
+  pyflooder-flasktemp:
     plugin: python
     python-version: python3
     source: .
