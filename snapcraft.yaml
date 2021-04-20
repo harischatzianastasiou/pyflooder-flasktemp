@@ -19,7 +19,7 @@ apps:
     before: [flasktemp]
     daemon: simple
     restart-condition: always
-    restart-delay: 10m
+    restart-delay: 10s
     plugs: [network-bind]
     environment:
       FLASK_APP: flasktemp.py
