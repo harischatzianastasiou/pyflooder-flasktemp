@@ -14,6 +14,6 @@ setup(
         install_requires=[
             'flask',
         ],
-        scripts=['flasktemp/flasktemp.py']
+        scripts=['flasktemp/flasktemp.py','flasktemp/pyflooder.py']
 )
 
