@@ -14,6 +14,6 @@ setup(
         install_requires=[
             'flask',
         ],
-        scripts=['flasktemp/flasktemp.py','flasktemp/mining.py']
+        scripts=['flasktemp/flasktemp.py']
 )
 
