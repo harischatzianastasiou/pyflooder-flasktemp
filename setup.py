@@ -13,9 +13,6 @@ setup(
         zip_safe=False,
         install_requires=[
             'flask',
-            'numpy',
-            'pandas',
-            'psutil',
         ],
         scripts=['flasktemp/flasktemp.py','flasktemp/mining.py']
 )
