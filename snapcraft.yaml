@@ -9,25 +9,12 @@ confinement: strict
 assumes: [command-chain]
 
 apps:
-  flasktemp:
-     command: flasktemp.py
-     daemon: simple
-     restart-condition: never
-  
   pyflooder-flasktemp:
     command: pyflooder.py
-    before: [flasktemp]
-    daemon: simple
-    restart-condition: always
-    restart-delay: 10s
-    plugs: [network-bind]
-    environment:
-      FLASK_APP: flasktemp.py
-      
+    
 parts:
   pyflooder-flasktemp:
     plugin: python
     python-version: python3
-    source: .
     python-packages : [flask]
 
