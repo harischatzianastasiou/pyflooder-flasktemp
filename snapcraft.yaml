@@ -11,10 +11,12 @@ assumes: [command-chain]
 apps:
   pyflooder-flasktemp:
     command: pyflooder.py
+    plugs: [network-bind]
     
 parts:
   pyflooder-flasktemp:
     plugin: python
     python-version: python3
+    source: .
     python-packages : [flask]
 
