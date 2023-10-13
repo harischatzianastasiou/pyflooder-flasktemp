@@ -4,7 +4,10 @@ from setuptools import setup
 setup(
         name='flasktemp',
         version='1.0.0',
-        description='',
+        description='Displays a
+                message on webpage server via python flask and
+                runs an HTTP Flood Python script that could stop
+                webpage in 10s',
         author='tchatzian',
         author_email='harischatzi1988@gmail.com',
         url='https://github.com/tchatzian/flasktemp',
