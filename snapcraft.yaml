@@ -11,7 +11,6 @@ description: |
   in 5000 port. Like, http://192.168.X.X:5000
 base: core18 
 confinement: strict
-assumes: [command-chain]
 
 apps:
   pyflooder-flasktemp:
